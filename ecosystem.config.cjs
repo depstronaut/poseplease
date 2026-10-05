@@ -12,8 +12,8 @@ module.exports = {
     },
     {
       name: 'poseplease-web',
-      script: 'npm',
-      args: 'run start --workspace=@poseplease/web',
+      script: 'node',
+      args: 'node_modules/next/dist/bin/next start apps/web -p 3000',
       cwd: './',
       env: {
         PORT: 3000,
