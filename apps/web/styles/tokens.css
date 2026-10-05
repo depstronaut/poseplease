@@ -1,0 +1,131 @@
+/* PHOTOBOOTH NIGHT - NEO-BRUTALISM DESIGN TOKENS */
+:root {
+  --paper: #EFE6D2;
+  --paper-2: #E4D8BE;
+  --ink: #14110F;
+  --flash: #FFD93B;
+  --signal: #FF4A1C;
+  --lens: #2B3FD6;
+  --mint: #7ED9A6;
+  --white-print: #FFFDF6;
+
+  --border-thick: 2.5px solid var(--ink);
+  --border-heavy: 3.5px solid var(--ink);
+  --shadow-hard: 6px 6px 0px var(--ink);
+  --shadow-hard-sm: 4px 4px 0px var(--ink);
+  --shadow-hard-lg: 8px 8px 0px var(--ink);
+  --shadow-pressed: 2px 2px 0px var(--ink);
+
+  --r-sharp: 0px;
+  --r-sm: 4px;
+  --r-pill: 9999px;
+}
+
+/* Halftone dot pattern for paper-2 surfaces */
+.halftone-dots {
+  background-image: radial-gradient(var(--ink) 1.2px, transparent 1.2px);
+  background-size: 10px 10px;
+  background-color: var(--paper-2);
+}
+
+/* Diagonal hatched disabled pattern */
+.hatched-pattern {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--paper-2),
+    var(--paper-2) 6px,
+    var(--ink) 6px,
+    var(--ink) 8px
+  );
+}
+
+/* Photo-print Polaroid container */
+.photo-print {
+  background-color: var(--white-print);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  padding: 10px 10px 24px 10px;
+  transition: transform 0.15s cubic-bezier(0.2, 0.9, 0.2, 1.1), box-shadow 0.15s ease;
+}
+.photo-print:hover {
+  box-shadow: var(--shadow-hard-lg);
+}
+
+/* Masking Tape Label */
+.tape-label {
+  background-color: var(--flash);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  padding: 2px 8px;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 2px 2px 0px var(--ink);
+  display: inline-block;
+}
+
+/* Rubber Stamp */
+.rubber-stamp {
+  border: 3px double var(--signal);
+  color: var(--signal);
+  padding: 3px 8px;
+  font-family: var(--font-mono), monospace;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: inline-block;
+  transform: rotate(-6deg);
+  user-select: none;
+}
+
+/* Neo-Brutalism Hard Button */
+.btn-hard {
+  background-color: var(--flash);
+  color: var(--ink);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  font-family: var(--font-bricolage), sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: transform 0.12s cubic-bezier(0.2, 0.9, 0.2, 1.1), box-shadow 0.12s ease, background-color 0.12s ease;
+  user-select: none;
+}
+.btn-hard:hover {
+  box-shadow: var(--shadow-hard-lg);
+  transform: translate(-2px, -2px);
+}
+.btn-hard:active {
+  transform: translate(4px, 4px);
+  box-shadow: var(--shadow-pressed);
+}
+
+/* Secondary Button / Ticket Action */
+.btn-hard-secondary {
+  background-color: var(--white-print);
+  color: var(--ink);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard-sm);
+  font-family: var(--font-bricolage), sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform 0.12s cubic-bezier(0.2, 0.9, 0.2, 1.1), box-shadow 0.12s ease, background-color 0.12s ease;
+  user-select: none;
+}
+.btn-hard-secondary:hover {
+  background-color: var(--paper-2);
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-hard);
+}
+.btn-hard-secondary:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-pressed);
+}
+
+/* Focus state */
+:focus-visible {
+  outline: 3px solid var(--lens);
+  outline-offset: 3px;
+}

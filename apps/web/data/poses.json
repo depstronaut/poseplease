@@ -1,0 +1,77 @@
+[
+  {
+    "id": "pose-neutral",
+    "nama": "Pose Santai (Netral)",
+    "deskripsi": "Berdiri tegak santai, kedua tangan rileks di samping badan, tatap kamera.",
+    "emoji": "🧘",
+    "gambar": "/poses/neutral.svg",
+    "angles": {
+      "leftElbow": 170,
+      "rightElbow": 170,
+      "leftShoulder": 90,
+      "rightShoulder": 90,
+      "shoulderTilt": 0,
+      "headTilt": 0
+    }
+  },
+  {
+    "id": "pose-hands-up",
+    "nama": "Angkat Tangan (Y-Pose / Victory)",
+    "deskripsi": "Angkat kedua tangan ke atas membentuk huruf V atau Y selebrasi kemenangan!",
+    "emoji": "🙌",
+    "gambar": "/poses/hands_up.svg",
+    "angles": {
+      "leftElbow": 170,
+      "rightElbow": 170,
+      "leftShoulder": -50,
+      "rightShoulder": -50,
+      "shoulderTilt": 0,
+      "headTilt": 0
+    }
+  },
+  {
+    "id": "pose-hands-on-hips",
+    "nama": "Berkacak Pinggang (Akimboy)",
+    "deskripsi": "Letakkan kedua tangan di pinggang dengan siku melebar, ala pose meme kecewa!",
+    "emoji": "🧍",
+    "gambar": "/poses/hands_on_hips.svg",
+    "angles": {
+      "leftElbow": 70,
+      "rightElbow": 70,
+      "leftShoulder": 40,
+      "rightShoulder": 40,
+      "shoulderTilt": 0,
+      "headTilt": 0
+    }
+  },
+  {
+    "id": "pose-arms-crossed",
+    "nama": "Tangan Menyilang (Wakanda Forever)",
+    "deskripsi": "Silangkan kedua lengan di depan dada membentuk huruf X!",
+    "emoji": "🙅‍♂️",
+    "gambar": "/poses/arms_crossed.svg",
+    "angles": {
+      "leftElbow": 60,
+      "rightElbow": 60,
+      "leftShoulder": 120,
+      "rightShoulder": 120,
+      "shoulderTilt": 0,
+      "headTilt": 0
+    }
+  },
+  {
+    "id": "pose-hands-on-head",
+    "nama": "Dua Tangan di Kepala (Mind Blown)",
+    "deskripsi": "Pegang kedua sisi kepala dengan tangan, pose kaget atau pusing meme!",
+    "emoji": "🤯",
+    "gambar": "/poses/hands_on_head.svg",
+    "angles": {
+      "leftElbow": 45,
+      "rightElbow": 45,
+      "leftShoulder": -15,
+      "rightShoulder": -15,
+      "shoulderTilt": 0,
+      "headTilt": 0
+    }
+  }
+]

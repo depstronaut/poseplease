@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@import "../styles/tokens.css";
+
+@theme {
+  --font-display: var(--font-bricolage), sans-serif;
+  --font-body: var(--font-instrument), sans-serif;
+  --font-mono: var(--font-mono), monospace;
+  --font-marker: var(--font-marker), cursive;
+
+  --color-paper: #EFE6D2;
+  --color-paper-2: #E4D8BE;
+  --color-ink: #14110F;
+  --color-flash: #FFD93B;
+  --color-signal: #FF4A1C;
+  --color-lens: #2B3FD6;
+  --color-mint: #7ED9A6;
+  --color-white-print: #FFFDF6;
+}
+
+:root {
+  --background: #EFE6D2;
+  --foreground: #14110F;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-instrument), -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animations for Neo-Brutalism & Photobooth */
+@keyframes shutter-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes film-drift {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes rec-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes aperture-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pop-squash {
+  0% { transform: scale(1.35) rotate(-3deg); }
+  50% { transform: scale(0.95) rotate(1deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes flash-flicker {
+  0% { opacity: 0; }
+  30% { opacity: 0.95; }
+  100% { opacity: 0; }
+}
+
+.animate-shutter-wiggle:hover {
+  animation: shutter-wiggle 0.35s ease infinite;
+}
+
+.animate-rec-blink {
+  animation: rec-blink 1s infinite steps(1);
+}
+
+.animate-aperture-spin {
+  animation: aperture-spin 60s linear infinite;
+}
+
+.animate-pop-squash {
+  animation: pop-squash 0.35s cubic-bezier(0.2, 0.9, 0.2, 1.1) forwards;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper-2);
+  border-left: 2px solid var(--ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

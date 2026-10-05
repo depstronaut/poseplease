@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: poseplease-server
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 2567
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /health
