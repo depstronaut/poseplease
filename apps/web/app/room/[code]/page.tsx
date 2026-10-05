@@ -134,7 +134,18 @@ export default function RoomPage({ params }: PageProps) {
               PoseRoomState
             );
           }
-          activeRoom = await connectingPromiseRef.current;
+          const timeoutPromise = new Promise<never>((_, reject) =>
+            setTimeout(
+              () =>
+                reject(
+                  new Error(
+                    'Timeout: Tidak dapat terhubung ke Game Server Colyseus. Pastikan server aktif dan NEXT_PUBLIC_SERVER_URL telah diatur di Vercel.'
+                  )
+                ),
+              10000
+            )
+          );
+          activeRoom = await Promise.race([connectingPromiseRef.current, timeoutPromise]);
         }
 
         connectingPromiseRef.current = null;
