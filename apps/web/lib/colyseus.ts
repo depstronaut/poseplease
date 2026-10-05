@@ -13,7 +13,11 @@ export function getServerUrl(): string {
   if (typeof window !== 'undefined') {
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     const host = window.location.hostname || 'localhost';
-    return `${protocol}//${host}:2567`;
+    if (host === 'localhost' || host === '127.0.0.1') {
+      return `${protocol}//${host}:2567`;
+    }
+    // Production on same domain via Nginx reverse proxy
+    return `${protocol}//${window.location.host}`;
   }
   return 'ws://localhost:2567';
 }
