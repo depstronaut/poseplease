@@ -32,8 +32,38 @@ const permanentMarker = Permanent_Marker({
 });
 
 export const metadata: Metadata = {
-  title: 'Pose Please - Photobooth Night Cam Party',
-  description: 'Party game multiplayer real-time adu pose meme di depan webcam ala photobooth disposable camera!',
+  title: 'Pose Please',
+  description: '',
+  metadataBase: new URL('https://poseplease.depstronaut.com'),
+  icons: {
+    icon: [
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '512x512', type: 'image/png' },
+    ],
+  },
+  openGraph: {
+    title: 'Pose Please',
+    description: '',
+    url: 'https://poseplease.depstronaut.com',
+    siteName: 'Pose Please',
+    images: [
+      {
+        url: '/logo.png',
+        width: 512,
+        height: 512,
+        alt: 'Pose Please',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Pose Please',
+    description: '',
+    images: ['/logo.png'],
+  },
 };
 
 export default function RootLayout({
