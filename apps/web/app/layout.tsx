@@ -37,8 +37,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://poseplease.depstronaut.com'),
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/icon.png', sizes: '512x512', type: 'image/png' },
     ],
+    shortcut: '/favicon.ico',
     apple: [
       { url: '/apple-touch-icon.png', sizes: '512x512', type: 'image/png' },
     ],
