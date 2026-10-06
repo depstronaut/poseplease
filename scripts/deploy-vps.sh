@@ -68,26 +68,30 @@ pm2 startup systemd -u root --hp /root || true
 
 echo "🌐 [6/6] Mengkonfigurasi Nginx untuk ${DOMAIN}..."
 cat << 'EOF' > /etc/nginx/sites-available/poseplease
+map $http_upgrade $backend_upstream {
+    default http://127.0.0.1:3000;
+    websocket http://127.0.0.1:2567;
+}
+
 server {
     listen 80;
     server_name poseplease.depstronaut.com;
 
-    # Next.js Web Frontend
-    location / {
-        proxy_pass http://127.0.0.1:3000;
+    location /matchmake/ {
+        proxy_pass http://127.0.0.1:2567;
         proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
         proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 
-    # Colyseus Multiplayer WebSocket & Matchmaker
-    location ~* ^/(matchmake|pose_room|health) {
+    location /health {
         proxy_pass http://127.0.0.1:2567;
+    }
+
+    location / {
+        proxy_pass $backend_upstream;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
