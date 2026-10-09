@@ -11,8 +11,7 @@
       "leftShoulder": -35,
       "rightShoulder": -35,
       "shoulderTilt": 0,
-      "headTilt": 0,
-      "handToFace": 40
+      "headTilt": 0
     }
   },
   {
@@ -22,13 +21,12 @@
     "emoji": "🤷‍♂️",
     "gambar": "/memes/2.jpg",
     "angles": {
-      "leftElbow": 115,
-      "rightElbow": 115,
-      "leftShoulder": 55,
-      "rightShoulder": 55,
-      "shoulderTilt": -5,
-      "headTilt": 6,
-      "mouthOpen": 25
+      "leftElbow": 110,
+      "rightElbow": 110,
+      "leftShoulder": 50,
+      "rightShoulder": 50,
+      "shoulderTilt": 0,
+      "headTilt": 0
     }
   },
   {
@@ -38,12 +36,9 @@
     "emoji": "🙋",
     "gambar": "/memes/3.jpg",
     "angles": {
-      "leftElbow": 170,
-      "rightElbow": 50,
-      "leftShoulder": 85,
-      "rightShoulder": 35,
-      "shoulderTilt": 5,
-      "headTilt": 14,
+      "rightElbow": 55,
+      "rightShoulder": 45,
+      "headTilt": 12,
       "handToChest": 85
     }
   },
@@ -60,8 +55,8 @@
       "rightShoulder": -20,
       "shoulderTilt": 0,
       "headTilt": 0,
-      "mouthOpen": 85,
-      "handToFace": 95
+      "mouthOpen": 75,
+      "handToFace": 85
     }
   },
   {
@@ -71,13 +66,9 @@
     "emoji": "🤫",
     "gambar": "/memes/5.jpg",
     "angles": {
-      "leftElbow": 165,
-      "rightElbow": 35,
-      "leftShoulder": 85,
-      "rightShoulder": 40,
-      "shoulderTilt": 0,
-      "headTilt": 0,
-      "handToFace": 95,
+      "rightElbow": 50,
+      "rightShoulder": 65,
+      "handToFace": 85,
       "mouthOpen": 0
     }
   },
@@ -88,13 +79,10 @@
     "emoji": "🧠",
     "gambar": "/memes/6.jpg",
     "angles": {
-      "leftElbow": 165,
-      "rightElbow": 38,
-      "leftShoulder": 85,
-      "rightShoulder": 25,
-      "shoulderTilt": 8,
+      "rightElbow": 45,
+      "rightShoulder": 45,
       "headTilt": -10,
-      "handToFace": 90
+      "handToFace": 85
     }
   },
   {
@@ -104,12 +92,12 @@
     "emoji": "🦆",
     "gambar": "/memes/7.jpg",
     "angles": {
-      "leftElbow": 55,
-      "rightElbow": 130,
+      "leftElbow": 65,
+      "rightElbow": 120,
       "leftShoulder": -15,
       "rightShoulder": 50,
-      "shoulderTilt": -12,
-      "headTilt": 18
+      "shoulderTilt": -10,
+      "headTilt": 15
     }
   },
   {
@@ -119,13 +107,13 @@
     "emoji": "😬",
     "gambar": "/memes/8.jpg",
     "angles": {
-      "leftElbow": 115,
-      "rightElbow": 115,
+      "leftElbow": 110,
+      "rightElbow": 110,
       "leftShoulder": 65,
       "rightShoulder": 65,
-      "shoulderTilt": 6,
-      "headTilt": -16,
-      "mouthOpen": 40
+      "shoulderTilt": 5,
+      "headTilt": -14,
+      "mouthOpen": 35
     }
   },
   {
@@ -141,7 +129,8 @@
       "rightShoulder": 20,
       "shoulderTilt": 0,
       "headTilt": 18,
-      "handToFace": 85
+      "handToFace": 85,
+      "mouthOpen": 55
     }
   },
   {
@@ -153,11 +142,11 @@
     "angles": {
       "leftElbow": 65,
       "rightElbow": 65,
-      "leftShoulder": 45,
-      "rightShoulder": 45,
+      "leftShoulder": 50,
+      "rightShoulder": 50,
       "shoulderTilt": 0,
-      "headTilt": 8,
-      "handCloseness": 95
+      "headTilt": 6,
+      "handCloseness": 85
     }
   },
   {
@@ -167,12 +156,9 @@
     "emoji": "✋",
     "gambar": "/memes/11.jpg",
     "angles": {
-      "leftElbow": 165,
-      "rightElbow": 145,
-      "leftShoulder": 80,
-      "rightShoulder": 45,
-      "shoulderTilt": 5,
-      "headTilt": -8
+      "rightElbow": 140,
+      "rightShoulder": 50,
+      "headTilt": -6
     }
   }
 ]

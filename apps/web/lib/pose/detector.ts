@@ -84,9 +84,9 @@ export function drawUpperBodySkeleton(
   ctx.shadowBlur = 0;
 
   // Crisp Flat Ink Bones (No Glow)
-  // Thin ink outline: #14110F, or mint #7ED9A6 when pose matched (score >= 80)
-  const boneColor = score >= 80 ? '#7ED9A6' : '#14110F';
-  const boneWidth = score >= 80 ? 4.5 : 3.5;
+  // Thin ink outline: #14110F, or mint #7ED9A6 when pose matched (score >= 70)
+  const boneColor = score >= 70 ? '#7ED9A6' : '#14110F';
+  const boneWidth = score >= 70 ? 4.5 : 3.5;
 
   // 1. Draw Upper Body Bones
   for (const [startIdx, endIdx] of UPPER_BODY_CONNECTIONS) {

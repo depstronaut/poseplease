@@ -14,7 +14,6 @@ export const POSES: TargetPose[] = [
       rightShoulder: -35,
       shoulderTilt: 0,
       headTilt: 0,
-      handToFace: 40,
     }
   },
   {
@@ -26,8 +25,8 @@ export const POSES: TargetPose[] = [
     angles: {
       leftElbow: 110,
       rightElbow: 110,
-      leftShoulder: 45,
-      rightShoulder: 45,
+      leftShoulder: 50,
+      rightShoulder: 50,
       shoulderTilt: 0,
       headTilt: 0,
     }
@@ -39,9 +38,9 @@ export const POSES: TargetPose[] = [
     emoji: "🙋",
     gambar: "/memes/3.jpg",
     angles: {
-      rightElbow: 50,
-      rightShoulder: 35,
-      headTilt: 14,
+      rightElbow: 55,
+      rightShoulder: 45,
+      headTilt: 12,
       handToChest: 85,
     }
   },
@@ -58,8 +57,8 @@ export const POSES: TargetPose[] = [
       rightShoulder: -20,
       shoulderTilt: 0,
       headTilt: 0,
-      mouthOpen: 85,
-      handToFace: 95,
+      mouthOpen: 75,
+      handToFace: 85,
     }
   },
   {
@@ -69,9 +68,9 @@ export const POSES: TargetPose[] = [
     emoji: "🤫",
     gambar: "/memes/5.jpg",
     angles: {
-      rightElbow: 35,
-      rightShoulder: 40,
-      handToFace: 95,
+      rightElbow: 50,
+      rightShoulder: 65,
+      handToFace: 85,
       mouthOpen: 0,
     }
   },
@@ -82,10 +81,10 @@ export const POSES: TargetPose[] = [
     emoji: "🧠",
     gambar: "/memes/6.jpg",
     angles: {
-      rightElbow: 38,
-      rightShoulder: 25,
+      rightElbow: 45,
+      rightShoulder: 45,
       headTilt: -10,
-      handToFace: 90,
+      handToFace: 85,
     }
   },
   {
@@ -95,12 +94,12 @@ export const POSES: TargetPose[] = [
     emoji: "🦆",
     gambar: "/memes/7.jpg",
     angles: {
-      leftElbow: 55,
-      rightElbow: 130,
+      leftElbow: 65,
+      rightElbow: 120,
       leftShoulder: -15,
       rightShoulder: 50,
-      shoulderTilt: -12,
-      headTilt: 18,
+      shoulderTilt: -10,
+      headTilt: 15,
     }
   },
   {
@@ -110,13 +109,13 @@ export const POSES: TargetPose[] = [
     emoji: "😬",
     gambar: "/memes/8.jpg",
     angles: {
-      leftElbow: 115,
-      rightElbow: 115,
+      leftElbow: 110,
+      rightElbow: 110,
       leftShoulder: 65,
       rightShoulder: 65,
-      shoulderTilt: 6,
-      headTilt: -16,
-      mouthOpen: 40,
+      shoulderTilt: 5,
+      headTilt: -14,
+      mouthOpen: 35,
     }
   },
   {
@@ -133,7 +132,7 @@ export const POSES: TargetPose[] = [
       shoulderTilt: 0,
       headTilt: 18,
       handToFace: 85,
-      mouthOpen: 50,
+      mouthOpen: 55,
     }
   },
   {
@@ -145,11 +144,11 @@ export const POSES: TargetPose[] = [
     angles: {
       leftElbow: 65,
       rightElbow: 65,
-      leftShoulder: 45,
-      rightShoulder: 45,
+      leftShoulder: 50,
+      rightShoulder: 50,
       shoulderTilt: 0,
-      headTilt: 8,
-      handCloseness: 95,
+      headTilt: 6,
+      handCloseness: 85,
     }
   },
   {
@@ -159,9 +158,9 @@ export const POSES: TargetPose[] = [
     emoji: "✋",
     gambar: "/memes/11.jpg",
     angles: {
-      rightElbow: 145,
-      rightShoulder: 45,
-      headTilt: -8,
+      rightElbow: 140,
+      rightShoulder: 50,
+      headTilt: -6,
     }
   }
 ];

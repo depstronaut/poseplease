@@ -34,13 +34,14 @@ export function computeAngleDifference(
  */
 export function differenceToScore(
   diff: number,
-  maxTolerance: number = MAX_ANGLE_TOLERANCE_DEG
+  maxTolerance: number = MAX_ANGLE_TOLERANCE_DEG,
+  graceTolerance: number = 15
 ): number {
-  if (diff <= 0) return 100;
+  if (diff <= graceTolerance) return 100;
   if (diff >= maxTolerance) return 0;
 
   // Smooth quadratic drop-off for satisfying arcade gameplay
-  const normalized = diff / maxTolerance; // 0 to 1
+  const normalized = (diff - graceTolerance) / (maxTolerance - graceTolerance);
   const score = 100 * (1 - Math.pow(normalized, 1.25));
   return Math.round(Math.max(0, Math.min(100, score)));
 }

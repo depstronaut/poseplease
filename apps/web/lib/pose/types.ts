@@ -86,7 +86,7 @@ export const DEFAULT_ANGLE_WEIGHTS: Partial<Record<AngleKey, number>> = {
   handToChest: 1.0,
 };
 
-export const MIN_LANDMARK_VISIBILITY = 0.5;
+export const MIN_LANDMARK_VISIBILITY = 0.4;
 export const MAX_ANGLE_TOLERANCE_DEG = 65;
-export const SUCCESS_SCORE_THRESHOLD = 80;
+export const SUCCESS_SCORE_THRESHOLD = 70;
 export const HOLD_SUCCESS_DURATION_MS = 1000;

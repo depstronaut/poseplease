@@ -46,9 +46,10 @@ export const LANDMARK_INDEX = {
 
 export const UPPER_BODY_INDICES = [0, 2, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20] as const;
 
-export const MIN_LANDMARK_VISIBILITY = 0.5;
-export const MAX_ANGLE_TOLERANCE_DEG = 45;
-export const SUCCESS_SCORE_THRESHOLD = 75;
+export const MIN_LANDMARK_VISIBILITY = 0.4;
+export const MAX_ANGLE_TOLERANCE_DEG = 65;
+export const GRACE_ANGLE_TOLERANCE_DEG = 15;
+export const SUCCESS_SCORE_THRESHOLD = 70;
 
 import type { AvatarPreset } from './types.ts';
 

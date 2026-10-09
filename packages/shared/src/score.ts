@@ -6,6 +6,7 @@ import type {
 } from './types.ts';
 import {
   MAX_ANGLE_TOLERANCE_DEG,
+  GRACE_ANGLE_TOLERANCE_DEG,
   ROLLING_WINDOW_MS,
   ROUND_RANK_BONUSES,
 } from './constants.ts';
@@ -27,13 +28,14 @@ export function computeAngleDifference(
 
 export function differenceToScore(
   diff: number,
-  maxTolerance: number = MAX_ANGLE_TOLERANCE_DEG
+  maxTolerance: number = MAX_ANGLE_TOLERANCE_DEG,
+  graceTolerance: number = GRACE_ANGLE_TOLERANCE_DEG
 ): number {
-  if (diff <= 0) return 100;
+  if (diff <= graceTolerance) return 100;
   if (diff >= maxTolerance) return 0;
 
-  const normalized = diff / maxTolerance;
-  const score = 100 * (1 - Math.pow(normalized, 1.5));
+  const normalized = (diff - graceTolerance) / (maxTolerance - graceTolerance);
+  const score = 100 * (1 - Math.pow(normalized, 1.25));
   return Math.round(Math.max(0, Math.min(100, score)));
 }
 
@@ -58,7 +60,8 @@ export function mirrorPoseAngles(angles: Record<string, number>): Record<string,
 function evaluateSinglePoseScore(
   playerAngles: PoseAngles | null | undefined,
   targetAngles: Record<string, number>,
-  maxTolerance: number
+  maxTolerance: number = MAX_ANGLE_TOLERANCE_DEG,
+  graceTolerance: number = GRACE_ANGLE_TOLERANCE_DEG
 ): ScoreResult {
   const targetKeys = Object.keys(targetAngles) as AngleKey[];
   const breakdown: Record<AngleKey, AngleEvaluation> = {} as any;
@@ -71,7 +74,7 @@ function evaluateSinglePoseScore(
   for (const key of targetKeys) {
     const targetAngle = targetAngles[key] ?? 0;
     const playerAngle = playerAngles ? (playerAngles[key] as number | null | undefined) ?? null : null;
-    const weight = GESTURE_KEYS.has(key) ? 3.0 : 1.0;
+    const weight = GESTURE_KEYS.has(key) ? 2.5 : 1.0;
 
     const isVisible = playerAngle !== null && playerAngle !== undefined;
     const isLinear =
@@ -89,7 +92,7 @@ function evaluateSinglePoseScore(
     if (isVisible) {
       visibleCount++;
       const diff = Math.round(computeAngleDifference(playerAngle, targetAngle, isCircular));
-      const score = differenceToScore(diff, maxTolerance);
+      const score = differenceToScore(diff, maxTolerance, graceTolerance);
 
       totalWeightedScore += score * weight;
 
@@ -129,11 +132,12 @@ function evaluateSinglePoseScore(
 export function calculatePoseScore(
   playerAngles: PoseAngles | null | undefined,
   targetAngles: Record<string, number>,
-  maxTolerance: number = MAX_ANGLE_TOLERANCE_DEG
+  maxTolerance: number = MAX_ANGLE_TOLERANCE_DEG,
+  graceTolerance: number = GRACE_ANGLE_TOLERANCE_DEG
 ): ScoreResult {
-  const normalResult = evaluateSinglePoseScore(playerAngles, targetAngles, maxTolerance);
+  const normalResult = evaluateSinglePoseScore(playerAngles, targetAngles, maxTolerance, graceTolerance);
   const mirroredTarget = mirrorPoseAngles(targetAngles);
-  const mirroredResult = evaluateSinglePoseScore(playerAngles, mirroredTarget, maxTolerance);
+  const mirroredResult = evaluateSinglePoseScore(playerAngles, mirroredTarget, maxTolerance, graceTolerance);
 
   return normalResult.totalScore >= mirroredResult.totalScore ? normalResult : mirroredResult;
 }

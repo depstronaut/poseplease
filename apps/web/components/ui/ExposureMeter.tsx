@@ -17,14 +17,14 @@ export const ExposureMeter: React.FC<ExposureMeterProps> = ({ score, isMatched =
         </span>
         <span
           className={`font-mono text-xs font-black px-2 py-0.5 border border-[#14110F] ${
-            isMatched
+            isMatched || clampedScore >= 70
               ? 'bg-[#7ED9A6] text-[#14110F] animate-pulse'
-              : clampedScore >= 50
+              : clampedScore >= 45
               ? 'bg-[#FFD93B] text-[#14110F]'
               : 'bg-[#E4D8BE] text-[#14110F]'
           }`}
         >
-          {clampedScore}% {isMatched ? 'PAS! TAHAN' : ''}
+          {clampedScore}% {isMatched || clampedScore >= 70 ? 'PAS! TAHAN' : ''}
         </span>
       </div>
 
@@ -36,14 +36,14 @@ export const ExposureMeter: React.FC<ExposureMeterProps> = ({ score, isMatched =
             <div
               key={i}
               className={`w-0.5 ${
-                i >= 15 ? 'h-full bg-[#7ED9A6]' : i % 5 === 0 ? 'h-3.5 bg-[#14110F]' : 'h-2 bg-[#14110F]/40'
+                i >= 14 ? 'h-full bg-[#7ED9A6]' : i % 5 === 0 ? 'h-3.5 bg-[#14110F]' : 'h-2 bg-[#14110F]/40'
               }`}
             />
           ))}
         </div>
 
-        {/* Green Target Zone: 75% to 100% */}
-        <div className="absolute right-0 top-0 bottom-0 w-[25%] bg-[#7ED9A6]/50 border-l-2 border-[#14110F] pointer-events-none flex items-center justify-center">
+        {/* Green Target Zone: 70% to 100% */}
+        <div className="absolute right-0 top-0 bottom-0 w-[30%] bg-[#7ED9A6]/50 border-l-2 border-[#14110F] pointer-events-none flex items-center justify-center">
           <span className="font-mono text-[8px] font-black text-[#14110F] tracking-tight">
             TARGET
           </span>
@@ -58,9 +58,9 @@ export const ExposureMeter: React.FC<ExposureMeterProps> = ({ score, isMatched =
 
       <div className="flex items-center justify-between text-[9px] font-mono font-bold text-[#14110F]/70 px-1 mt-0.5">
         <span>0% BELUM PAS</span>
-        <span>50% MENDEKATI</span>
+        <span>45% MENDEKATI</span>
         <span className="text-[#14110F] font-black bg-[#7ED9A6] px-1 border border-[#14110F]">
-          75%-100% ZONA TARGET
+          70%-100% ZONA TARGET
         </span>
       </div>
     </div>

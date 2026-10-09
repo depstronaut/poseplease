@@ -119,8 +119,9 @@ export function computeMouthOpen(
 ): number {
   const mouthMidY = (mouthLeft.y + mouthRight.y) / 2;
   const vertDrop = (mouthMidY - nose.y) / Math.max(1e-4, scale);
-  // Normal resting mouth: ~0.20 scale. Wide open: >= 0.36
-  const score = ((vertDrop - 0.20) / 0.16) * 100;
+  // Normal resting mouth: ~0.19-0.22 scale. Open mouth: >= 0.28
+  if (vertDrop <= 0.22) return 0;
+  const score = ((vertDrop - 0.22) / 0.12) * 100;
   return Math.max(0, Math.min(100, Math.round(score)));
 }
 
@@ -130,8 +131,10 @@ export function computeHandCloseness(
   scale: number
 ): number {
   const dist = Math.hypot(lWrist.x - rWrist.x, lWrist.y - rWrist.y) / Math.max(1e-4, scale);
-  // Touching or close: < 0.20 scale
-  const score = (1 - dist / 0.45) * 100;
+  // In heart hands, palms/fingers meet while wrists remain ~0.25-0.30 scale apart
+  if (dist <= 0.28) return 100;
+  if (dist >= 0.75) return 0;
+  const score = 100 * (1 - (dist - 0.28) / (0.75 - 0.28));
   return Math.max(0, Math.min(100, Math.round(score)));
 }
 
@@ -147,7 +150,11 @@ export function computeHandToFace(
       if (d < minDist) minDist = d;
     }
   }
-  const score = (1 - minDist / 0.45) * 100;
+  // When hands or index fingers touch chin/lips/cheek/ears:
+  // minDist of nearest wrist/index is naturally within 0.25 scale
+  if (minDist <= 0.25) return 100;
+  if (minDist >= 0.70) return 0;
+  const score = 100 * (1 - (minDist - 0.25) / (0.70 - 0.25));
   return Math.max(0, Math.min(100, Math.round(score)));
 }
 
@@ -164,7 +171,9 @@ export function computeHandToChest(
     const d = Math.hypot(w.x - chestX, w.y - chestY) / Math.max(1e-4, scale);
     if (d < minDist) minDist = d;
   }
-  const score = (1 - minDist / 0.45) * 100;
+  if (minDist <= 0.25) return 100;
+  if (minDist >= 0.70) return 0;
+  const score = 100 * (1 - (minDist - 0.25) / (0.70 - 0.25));
   return Math.max(0, Math.min(100, Math.round(score)));
 }
 
